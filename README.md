@@ -159,7 +159,7 @@ Mostra que os testes foram executados com sucesso e que o sistema está funciona
 
 ## **Criação da Feature L2**
 
-## **1. Criação da Branch**:
+### **1. Criação da Branch**:
 
 Foi criada uma branch chamada `feature/l2-fallback-implementation` para desenvolver a feature L2, que adiciona um autorizador com fallback à aplicação existente.
 
