@@ -3,7 +3,6 @@ package fintech
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
-import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class TransactionProcessorTest {
@@ -13,6 +12,7 @@ class TransactionProcessorTest {
         // Resetar os saldos antes de cada teste
         categoryBalances["Food"] = BigDecimal("500.00")
         categoryBalances["Grocery"] = BigDecimal("300.00")
+        cashBalance = BigDecimal("1000.00")
     }
 
     @Test
@@ -22,7 +22,6 @@ class TransactionProcessorTest {
 
         // Verificar se a transação foi aprovada
         assertTrue {
-            // Verificar o saldo após a transação
             categoryBalances["Food"] == BigDecimal("450.00")
         }
     }
@@ -37,7 +36,6 @@ class TransactionProcessorTest {
 
         // Verificar se a transação foi rejeitada
         assertTrue {
-            // Verificar o saldo após a tentativa de transação
             categoryBalances["Food"] == BigDecimal("30.00")
         }
     }
@@ -49,7 +47,6 @@ class TransactionProcessorTest {
 
         // Verificar se a transação foi rejeitada devido a um MCC desconhecido
         assertTrue {
-            // Verificar o saldo, que não deve ser alterado
             categoryBalances["Food"] == BigDecimal("500.00")
             categoryBalances["Grocery"] == BigDecimal("300.00")
         }
