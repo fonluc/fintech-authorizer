@@ -1,5 +1,3 @@
----
-
 # Fintech Authorizer
 
 # Estrutura de Pastas e Arquivos
@@ -158,5 +156,38 @@ Mostra que os testes foram executados com sucesso e que o sistema está funciona
 - Todos os testes passaram com sucesso:
     - **testApproveTransactionWithCategory:** Confirmou a aprovação da transação quando o saldo da categoria era suficiente.
     - **testRejectTransaction:** Confirmou a rejeição da transação quando os saldos eram insuficientes (sem fallback).
+
+## **Criação da Feature L2**
+
+## **1. Criação da Branch**:
+
+Foi criada uma branch chamada `feature/l2-fallback-implementation` para desenvolver a feature L2, que adiciona um autorizador com fallback à aplicação existente.
+
+### **Implementação**: Foram feitas as seguintes mudanças na branch:
+
+### **Refatoração e Criação de Arquivos**:
+
+- **`Common.kt`**: Adicionou funções e variáveis comuns usadas em diferentes partes do projeto.
+- **`TransactionFallbackProcessor.kt`**: Implementou a lógica do autorizador com fallback, que verifica saldos de categorias e, se necessário, utiliza um saldo de reserva (CASH).
+- **`TransactionFallbackProcessorTest.kt`**: Criou testes específicos para o processador de transações com fallback, verificando diferentes cenários de transações e saldos.
+- **`TransactionProcessor.kt`** e **`TransactionProcessorTest.kt`**: Atualizou para garantir a integração com a nova lógica de fallback.
+
+### **Estrutura de Pastas e Arquivos**:
+
+Atualizou a estrutura para acomodar as novas funcionalidades e organizar melhor o código.
+
+### 2. **Documentação**
+
+- **Atualização da Documentação**: Documentou as alterações, incluindo a estrutura de pastas, novos arquivos, e a lógica usada para implementar o fallback. Também descreveu os testes realizados e os resultados obtidos.
+
+### 3. **Criação do Pull Request**
+
+- **Descrição Detalhada**: No pull request, foi fornecida uma descrição detalhada das alterações feitas, incluindo a estrutura do projeto, novas implementações e testes realizados.
+- **Revisão e Aprovação**: Solicitou a revisão e aprovação de revisores específicos, conforme necessário.
+
+### 4. **Merge e Fechamento do Pull Request**
+
+- **Merge do Pull Request**: O pull request foi fundido com sucesso, integrando a feature L2 ao branch principal.
+- **Branch Final**: O branch `feature/l2-fallback-implementation` foi mantido para fins de documentação e histórico.
 
 ---
