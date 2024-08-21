@@ -1,5 +1,3 @@
----
-
 # Fintech Authorizer
 
 # Estrutura de Pastas e Arquivos
