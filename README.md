@@ -24,6 +24,18 @@ fintech/
 └── settings.gradle.kts
 ```
 
+
+Aqui está um índice simplificado para o seu arquivo `README.md` principal, incluindo links para cada entrega:
+
+---
+
+## Índice
+
+1. [L1. Autorizador Simples](#l1-autorizador-simples)
+2. [L2. Autorizador com Fallback](#l2-autorizador-com-fallback)
+3. [L3. Dependente do Comerciante](#l3-dependente-do-comerciante)
+4. [L4. Transações Simultâneas](#l4-transações-simultâneas)
+
 ---
 
 # L1. Autorizador simples
@@ -294,3 +306,20 @@ Eu criei uma branch chamada `feature/implement-l3` para desenvolver a feature L3
 
 - **Merge do Pull Request**: O pull request foi fundido com sucesso, integrando a feature L3 ao branch principal.
 - **Branch Final**: Decidi manter o branch `feature/implement-l3` para fins de documentação e histórico.
+
+---
+
+## **L4. Transações Simultâneas**
+
+Para garantir a integridade e a exclusividade das transações simultâneas em nosso sistema de autorização, exploramos várias abordagens para lidar com transações concorrentes de maneira eficiente.
+
+### **Solução Implementada**
+
+Criamos uma pasta chamada [L4 Transações Simultâneas](L4%20Transações%20Simultâneas) dentro do repositório, que contém uma documentação detalhada sobre as abordagens e técnicas para gerenciar transações simultâneas. Nesta pasta, você encontrará:
+
+- **Descrição dos Problemas:** Identificação dos desafios associados às transações simultâneas.
+- **Abordagens Propostas:** Métodos para garantir a exclusividade, como locking em nível de banco de dados, sistemas de filas, algoritmos de controle de concorrência e tecnologias de cache distribuído.
+- **Diagramas:** Representações visuais do processamento de transações e das técnicas de controle de concorrência.
+- **Serviços Utilizados:** Recomendação de serviços e ferramentas que podem ser aplicadas para implementar as soluções discutidas.
+
+---
