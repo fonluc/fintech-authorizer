@@ -369,17 +369,17 @@ Garantir que as funcionalidades L1 (Autorizador Simples), L2 (Autorizador com Fa
 
 ## **Ajustes Gerais**
 
-### **Correção de Lógica em `TransactionProcessor.kt` e `TransactionFallbackProcessor.kt`:**
+**Correção de Lógica em `TransactionProcessor.kt` e `TransactionFallbackProcessor.kt`:**
 
 - Refatoração da lógica de aprovação e rejeição de transações para garantir que o saldo da categoria seja totalmente deduzido antes de recorrer ao saldo de **CASH**.
 - Implementação de verificações para garantir que as transações sejam corretamente rejeitadas quando tanto o saldo da categoria quanto o saldo de **CASH** são insuficientes.
 
-### **`TransactionProcessor.kt`**
+**`TransactionProcessor.kt`**
 
 - **Propósito:** Processamento de transações com base no MCC e, se necessário, com fallback para **CASH**.
 - **Conteúdo:** A lógica foi ajustada para garantir que, caso o saldo da categoria seja insuficiente, o restante seja deduzido de **CASH** antes de rejeitar a transação.
 
-### **`TransactionFallbackProcessor.kt`**
+**`TransactionFallbackProcessor.kt`**
 
 - **Propósito:** Processamento de transações com fallback e prioridade de comerciante.
 - **Conteúdo:** Similarmente, a lógica foi ajustada para tratar corretamente a dedução parcial da categoria e o uso de **CASH** como fallback.
@@ -397,29 +397,6 @@ Mostra que os testes foram executados com sucesso e que o sistema está funciona
 ![Captura de tela 2024-08-23 133954.png](assets%2FCaptura%20de%20tela%202024-08-23%20133954.png)
 
 ![Captura de tela 2024-08-23 134008.png](assets%2FCaptura%20de%20tela%202024-08-23%20134008.png)
-
-## **Documentação e Commit**
-
-### **1. Documentação:**
-
-- **Atualização da Documentação:** As mudanças realizadas foram documentadas, detalhando a lógica de fallback e a prioridade do nome do comerciante sobre o MCC.
-
-### **2. Criação de um Novo Commit:**
-
-### **Mensagem do Commit:**
-
-```
-feat: Refatoração e correção da lógica de fallback e prioridade de comerciante
-
-- Ajuste na lógica de aprovação e rejeição em `TransactionProcessor.kt` e `TransactionFallbackProcessor.kt` para garantir a correta dedução de saldos e rejeição de transações.
-- Atualização dos testes em `TransactionProcessorTest.kt` e `TransactionFallbackProcessorTest.kt` para validar as correções e garantir que todos os requisitos do desafio sejam atendidos.
-- Documentação atualizada com detalhes das mudanças realizadas.
-```
-
-### **3. Criação de um Pull Request:**
-
-- **Descrição Detalhada:** Inclua a descrição das alterações, os problemas corrigidos, e os resultados dos testes, confirmando que todos os requisitos foram atendidos.
-- **Revisão e Aprovação:** Propor a revisão e aprovação do código conforme o processo do projeto.
 
 ---
 [Voltar ao topo](#topo)
