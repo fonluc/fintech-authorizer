@@ -2,17 +2,28 @@ package fintech
 
 import java.math.BigDecimal
 
-// Função para processar transações simples e com prioridade de comerciante
 fun processTransaction(transaction: Transaction) {
-    // Tenta obter a categoria a partir do nome do comerciante
     val categoryFromMerchant = merchantToCategory[transaction.merchant]
-
-    // Se o nome do comerciante fornece uma categoria, use essa categoria
     val category = categoryFromMerchant ?: mccToCategory[transaction.mcc]
 
-    if (category != null && checkCategoryBalance(category, transaction.totalAmount)) {
+    if (category != null) {
+        val categoryBalance = categoryBalances.getOrDefault(category, BigDecimal.ZERO)
+        if (categoryBalance >= transaction.totalAmount) {
+            approveTransaction(transaction)
+            deductFromCategoryBalance(category, transaction.totalAmount)
+        } else {
+            val remainingAmount = transaction.totalAmount - categoryBalance
+            if (remainingAmount <= cashBalance) {
+                approveTransaction(transaction)
+                deductFromCategoryBalance(category, categoryBalance)
+                deductFromCashBalance(remainingAmount)
+            } else {
+                rejectTransaction(transaction)
+            }
+        }
+    } else if (transaction.totalAmount <= cashBalance) {
         approveTransaction(transaction)
-        deductFromCategoryBalance(category, transaction.totalAmount)
+        deductFromCashBalance(transaction.totalAmount)
     } else {
         rejectTransaction(transaction)
     }

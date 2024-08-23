@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e1444b3-6571-4ac0-9929-d5af33c17723" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/Captura de tela 2024-08-23 133954.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Captura de tela 2024-08-23 134008.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fintech/Common.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fintech/Common.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fintech/Main.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fintech/TransactionFallbackProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fintech/TransactionFallbackProcessor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fintech/TransactionProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fintech/TransactionProcessor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/fintech/TransactionFallbackProcessorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/fintech/TransactionFallbackProcessorTest.kt" afterDir="false" />
@@ -81,12 +82,13 @@
     "Gradle.MerchantFallbackProcessorTest.executor": "Run",
     "Gradle.TransactionFallbackProcessorTest.executor": "Run",
     "Gradle.TransactionFallbackProcessorTest.testApproveTransactionWithCashFallback.executor": "Run",
-    "Gradle.TransactionFallbackProcessorTest.testRejectTransaction.executor": "Run",
+    "Gradle.TransactionFallbackProcessorTest.testRejectTransaction.executor": "Coverage",
     "Gradle.TransactionFallbackProcessorTest.testUnknownMCC.executor": "Coverage",
     "Gradle.TransactionFallbackTest.executor": "Run",
     "Gradle.TransactionProcessorTest (1).executor": "Run",
     "Gradle.TransactionProcessorTest.executor": "Run",
     "Gradle.TransactionProcessorTest.testApproveTransaction.executor": "Run",
+    "Gradle.TransactionProcessorTest.testRejectTransaction.executor": "Coverage",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
@@ -108,6 +110,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lffm1.LAPTOP-0BVHLOCR\Desktop\fintech\assets" />
+      <recent name="C:\Users\lffm1.LAPTOP-0BVHLOCR\Desktop\fintech" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\lffm1.LAPTOP-0BVHLOCR\Desktop\fintech\src\main\kotlin\fintech" />
@@ -210,12 +213,12 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="TransactionProcessorTest.testApproveTransaction" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TransactionProcessorTest.testRejectTransaction" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--scan" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -223,7 +226,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;fintech.TransactionProcessorTest.testApproveTransaction&quot;" />
+            <option value="&quot;fintech.TransactionProcessorTest.testRejectTransaction&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -236,11 +239,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TransactionFallbackProcessorTest.testRejectTransaction" />
+        <item itemvalue="Gradle.TransactionProcessorTest.testRejectTransaction" />
         <item itemvalue="Gradle.TransactionFallbackProcessorTest.testApproveTransactionWithCashFallback" />
         <item itemvalue="Gradle.TransactionFallbackProcessorTest.testUnknownMCC" />
-        <item itemvalue="Gradle.TransactionFallbackProcessorTest.testRejectTransaction" />
         <item itemvalue="Gradle.TransactionProcessorTest" />
-        <item itemvalue="Gradle.TransactionProcessorTest.testApproveTransaction" />
       </list>
     </recent_temporary>
   </component>
@@ -271,6 +274,16 @@
       <workItem from="1724290971235" duration="4935000" />
       <workItem from="1724362511802" duration="10228000" />
       <workItem from="1724373767219" duration="2577000" />
+      <workItem from="1724379829745" duration="142000" />
+      <workItem from="1724381503060" duration="548000" />
+      <workItem from="1724382404262" duration="59000" />
+      <workItem from="1724382520514" duration="72000" />
+      <workItem from="1724382645189" duration="13000" />
+      <workItem from="1724382883951" duration="369000" />
+      <workItem from="1724383550057" duration="62000" />
+      <workItem from="1724384112405" duration="29000" />
+      <workItem from="1724384223091" duration="86000" />
+      <workItem from="1724429759731" duration="2541000" />
     </task>
     <servers />
   </component>
@@ -279,8 +292,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/fintech$TransactionProcessorTest.ic" NAME="TransactionProcessorTest Coverage Results" MODIFIED="1724289950764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/fintech$TransactionProcessorTest_testRejectTransaction.ic" NAME="TransactionProcessorTest.testRejectTransaction Coverage Results" MODIFIED="1724430865958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/fintech$TransactionProcessorTest_testApproveTransaction.ic" NAME="TransactionProcessorTest.testApproveTransaction Coverage Results" MODIFIED="1724292977896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/fintech$TransactionFallbackProcessorTest_testRejectTransaction.ic" NAME="TransactionFallbackProcessorTest.testRejectTransaction Coverage Results" MODIFIED="1724370124068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/fintech$TransactionFallbackProcessorTest_testRejectTransaction.ic" NAME="TransactionFallbackProcessorTest.testRejectTransaction Coverage Results" MODIFIED="1724430938237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/fintech$TransactionFallbackProcessorTest_testApproveTransactionWithCashFallback.ic" NAME="TransactionFallbackProcessorTest.testApproveTransactionWithCashFallback Coverage Results" MODIFIED="1724370460783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/fintech$TransactionFallbackProcessorTest_testUnknownMCC.ic" NAME="TransactionFallbackProcessorTest.testUnknownMCC Coverage Results" MODIFIED="1724370467589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
