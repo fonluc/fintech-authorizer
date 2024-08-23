@@ -3,12 +3,20 @@ package fintech
 import java.math.BigDecimal
 
 // Definição da classe de dados Transaction
-data class Transaction(val mcc: String, val totalAmount: BigDecimal)
+data class Transaction(val mcc: String, val totalAmount: BigDecimal, val merchant: String = "")
 
 // Mapeamento de MCC para categorias
 val mccToCategory = mapOf(
     "5811" to "Food",
     "5411" to "Grocery"
+)
+
+// Mapeamento de comerciantes para categorias (para L3)
+val merchantToCategory = mapOf(
+    "UBER TRIP" to "Food",
+    "UBER EATS" to "Food",
+    "PAG*JoseDaSilva" to "Grocery",
+    "PICPAY*BILHETEUNICO" to "Grocery"
 )
 
 // Simulação de saldo

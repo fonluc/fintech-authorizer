@@ -26,9 +26,14 @@ fun deductFromCashBalanceFallback(amount: BigDecimal) {
     println("Deducted $amount from CASH")
 }
 
-// Função para processar transações com fallback
+// Função para processar transações com fallback e prioridade de comerciante
 fun processTransactionWithFallback(transaction: Transaction) {
-    val category = mccToCategoryFallback[transaction.mcc]
+    // Tenta obter a categoria a partir do nome do comerciante
+    val categoryFromMerchant = merchantToCategory[transaction.merchant]
+
+    // Se o nome do comerciante fornece uma categoria, use essa categoria
+    val category = categoryFromMerchant ?: mccToCategoryFallback[transaction.mcc]
+
     if (category != null && checkCategoryBalanceFallback(category, transaction.totalAmount)) {
         approveTransaction(transaction)
         deductFromCategoryBalanceFallback(category, transaction.totalAmount)

@@ -16,6 +16,17 @@ class TransactionFallbackProcessorTest {
     }
 
     @Test
+    fun testApproveTransactionWithMerchant() {
+        val transaction = Transaction(mcc = "", totalAmount = BigDecimal("50.00"), merchant = "PAG*JoseDaSilva")
+        processTransactionWithFallback(transaction)
+
+        // Verificar se a transação foi aprovada e deduzida da categoria Grocery
+        assertTrue {
+            categoryBalancesFallback["Grocery"] == BigDecimal("250.00")
+        }
+    }
+
+    @Test
     fun testApproveTransactionWithCategory() {
         val transaction = Transaction("5811", BigDecimal("50.00"))
         processTransactionWithFallback(transaction)

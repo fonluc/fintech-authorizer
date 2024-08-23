@@ -16,11 +16,11 @@ class TransactionProcessorTest {
     }
 
     @Test
-    fun testApproveTransaction() {
-        val transaction = Transaction("5811", BigDecimal("50.00"))
+    fun testApproveTransactionWithMerchant() {
+        val transaction = Transaction(mcc = "", totalAmount = BigDecimal("50.00"), merchant = "UBER EATS")
         processTransaction(transaction)
 
-        // Verificar se a transação foi aprovada
+        // Verificar se a transação foi aprovada e deduzida da categoria Food
         assertTrue {
             categoryBalances["Food"] == BigDecimal("450.00")
         }

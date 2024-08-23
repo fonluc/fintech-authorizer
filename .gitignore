@@ -40,3 +40,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar diretórios de log
+logs/
