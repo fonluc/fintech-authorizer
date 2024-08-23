@@ -216,6 +216,15 @@ Atualizou a estrutura para acomodar as novas funcionalidades e organizar melhor 
 
 # **L3. Dependente do Comerciante**
 
+As vezes, os MCCs estão incorretos e uma transação deve ser processada levando em consideração também os dados do comerciante. Crie um mecanismo para substituir MCCs com base no nome do comerciante. O nome do comerciante tem maior precedência sobre as MCCs.
+
+### Exemplos:
+
+- `UBER TRIP                   SAO PAULO BR`
+- `UBER EATS                   SAO PAULO BR`
+- `PAG*JoseDaSilva          RIO DE JANEI BR`
+- `PICPAY*BILHETEUNICO           GOIANIA BR`
+
 ## Resumo da Implementação
 
 **Objetivo:** Implementar L3 (prioridade do comerciante) enquanto mantém a funcionalidade existente de L1 e L2.
@@ -324,6 +333,12 @@ Eu criei uma branch chamada `feature/implement-l3` para desenvolver a feature L3
 ---
 
 ## **L4. Transações Simultâneas**
+
+A seguir está uma questão aberta sobre um recurso importante de um autorizador completo (que você não precisa implementar, apenas discuta da maneira que achar adequada, como texto, diagramas, etc.).
+
+### Transações simultâneas:
+
+Dado que o mesmo cartão de crédito pode ser utilizado em diferentes serviços online, existe uma pequena mas existente probabilidade de ocorrerem duas transações ao mesmo tempo. O que você faria para garantir que apenas uma transação por conta fosse processada em um determinado momento? Esteja ciente do fato de que todas as solicitações de transação são síncronas e devem ser processadas rapidamente (menos de 100 ms), ou a transação atingirá o timeout.
 
 Para garantir a integridade e a exclusividade das transações simultâneas em nosso sistema de autorização, exploramos várias abordagens para lidar com transações concorrentes de maneira eficiente.
 
