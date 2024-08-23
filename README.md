@@ -3,7 +3,7 @@
 
 ---
 
-# Estrutura de Pastas e Arquivos
+# Estrutura do Projeto:
 
 ---
 
@@ -28,9 +28,6 @@ fintech/
 ├── build.gradle.kts
 └── settings.gradle.kts
 ```
-
-
-Aqui está um índice simplificado para o seu arquivo `README.md` principal, incluindo links para cada entrega:
 
 ---
 
