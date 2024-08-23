@@ -239,44 +239,44 @@ Mostra que os testes foram executados com sucesso e que o sistema está funciona
 
 ### **1. Testes em `TransactionProcessorTest.kt`:**
 
-### **`testApproveTransactionWithMerchant`:**
+**`testApproveTransactionWithMerchant`:**
 
 - Verifica se uma transação é aprovada corretamente quando o nome do comerciante (`UBER EATS`) é fornecido e corresponde a uma categoria ("Food").
 - Resultado: A transação foi aprovada e o saldo da categoria "Food" foi reduzido conforme esperado.
 
-### **`testRejectTransaction`:**
+**`testRejectTransaction`:**
 
 - Verifica se uma transação é rejeitada quando o saldo da categoria é insuficiente.
 - Resultado: A transação foi rejeitada e o saldo da categoria não foi alterado.
 
-### **`testUnknownMCC`:**
+**`testUnknownMCC`:**
 
 - Verifica se uma transação com um MCC desconhecido é rejeitada e o saldo de categoria permanece inalterado.
 - Resultado: A transação foi rejeitada e o saldo das categorias permaneceu o mesmo.
 
 ### **2. Testes em `TransactionFallbackProcessorTest.kt`:**
 
-### **`testApproveTransactionWithMerchant`:**
+**`testApproveTransactionWithMerchant`:**
 
 - Verifica se uma transação é aprovada e deduzida corretamente quando o nome do comerciante (`PAG*JoseDaSilva`) é fornecido e corresponde a uma categoria ("Grocery").
 - Resultado: A transação foi aprovada e o saldo da categoria "Grocery" foi reduzido conforme esperado.
 
-### **`testApproveTransactionWithCategory`:**
+**`testApproveTransactionWithCategory`:**
 
 - Verifica se uma transação é aprovada e deduzida corretamente de uma categoria quando a MCC é conhecida e o saldo é suficiente.
 - Resultado: A transação foi aprovada e o saldo da categoria foi ajustado conforme esperado.
 
-### **`testApproveTransactionWithCashFallback`:**
+**`testApproveTransactionWithCashFallback`:**
 
 - Verifica se uma transação é aprovada e deduzida do saldo de CASH quando o saldo da categoria é insuficiente.
 - Resultado: A transação foi aprovada e o saldo de CASH foi reduzido conforme esperado.
 
-### **`testRejectTransaction`:**
+**`testRejectTransaction`:**
 
 - Verifica se uma transação é rejeitada quando tanto o saldo da categoria quanto o saldo de CASH são insuficientes.
 - Resultado: A transação foi rejeitada e os saldos permaneceram inalterados.
 
-### **`testUnknownMCC`:**
+**`testUnknownMCC`:**
 
 - Verifica se uma transação com um MCC desconhecido é aprovada e deduzida do saldo de CASH quando o saldo é suficiente.
 - Resultado: A transação foi aprovada e o saldo de CASH foi reduzido conforme esperado.
