@@ -1,6 +1,11 @@
 # Fintech Authorizer
+<a id="topo"></a>
+
+---
 
 # Estrutura de Pastas e Arquivos
+
+---
 
 ```
 fintech/
@@ -97,6 +102,10 @@ Para uma transação com MCC "5811" e valor de 50.00, o sistema aprovou a transa
 
 - Para uma transação com MCC "1234" (não mapeado), o sistema rejeitou a transação corretamente.
 - Para uma transação com MCC "5811" e valor maior que o saldo disponível, a transação foi rejeitada, como esperado.
+
+---
+
+[Voltar ao topo](#topo)
 
 ---
 
@@ -201,6 +210,10 @@ Atualizou a estrutura para acomodar as novas funcionalidades e organizar melhor 
 
 - **Merge do Pull Request**: O pull request foi fundido com sucesso, integrando a feature L2 ao branch principal.
 - **Branch Final**: O branch `feature/l2-fallback-implementation` foi mantido para fins de documentação e histórico.
+
+---
+
+[Voltar ao topo](#topo)
 
 ---
 
@@ -309,17 +322,25 @@ Eu criei uma branch chamada `feature/implement-l3` para desenvolver a feature L3
 
 ---
 
+[Voltar ao topo](#topo)
+
+---
+
 ## **L4. Transações Simultâneas**
 
 Para garantir a integridade e a exclusividade das transações simultâneas em nosso sistema de autorização, exploramos várias abordagens para lidar com transações concorrentes de maneira eficiente.
 
 ### **Solução Implementada**
 
-Criamos uma pasta chamada [L4 Transações Simultâneas](L4%20Transações%20Simultâneas) dentro do repositório, que contém uma documentação detalhada sobre as abordagens e técnicas para gerenciar transações simultâneas. Nesta pasta, você encontrará:
+Criamos uma pasta chamada [L4 Transações Simultâneas](https://github.com/fonluc/fintech-authorizer/tree/main/L4%20Transa%C3%A7%C3%B5es%20simult%C3%A2neas) dentro do repositório, que contém uma documentação detalhada sobre as abordagens e técnicas para gerenciar transações simultâneas. Nesta pasta, você encontrará:
 
 - **Descrição dos Problemas:** Identificação dos desafios associados às transações simultâneas.
 - **Abordagens Propostas:** Métodos para garantir a exclusividade, como locking em nível de banco de dados, sistemas de filas, algoritmos de controle de concorrência e tecnologias de cache distribuído.
 - **Diagramas:** Representações visuais do processamento de transações e das técnicas de controle de concorrência.
 - **Serviços Utilizados:** Recomendação de serviços e ferramentas que podem ser aplicadas para implementar as soluções discutidas.
+
+---
+
+[Voltar ao topo](#topo)
 
 ---
