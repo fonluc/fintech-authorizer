@@ -53,14 +53,14 @@ O **autorizador simples** deve funcionar da seguinte forma:
 
 ## Resumo da Implementação
 
-### **Arquivo `TransactionProcessor.kt`**:
+**Arquivo `TransactionProcessor.kt`**:
 
 - **Mapeamento MCC**: `mccToCategory`
 - **Saldo**: `categoryBalances`
 - **Função de Processamento**: `processTransaction()`
 - **Funções Auxiliares**: `checkCategoryBalance()`, `approveTransaction()`, `deductFromCategoryBalance()`, `rejectTransaction()`
 
-### **Arquivo `TransactionProcessorTest.kt`**:
+**Arquivo `TransactionProcessorTest.kt`**:
 
 - **Teste de Aprovação**: `testApproveTransaction`
 - **Teste de Rejeição por Saldo Insuficiente**: `testRejectTransaction`
@@ -68,19 +68,19 @@ O **autorizador simples** deve funcionar da seguinte forma:
 
 ## Explicação dos Testes
 
-### **`testApproveTransaction`**:
+**`testApproveTransaction`**:
 
 - **Configuração**: Define um saldo inicial para "Food".
 - **Ação**: Processa uma transação que deve ser aprovada.
 - **Verificação**: Garante que o saldo da categoria "Food" foi reduzido corretamente após a transação.
 
-### **`testRejectTransaction`**:
+**`testRejectTransaction`**:
 
 - **Configuração**: Define um saldo inicial insuficiente para "Food".
 - **Ação**: Processa uma transação que deve ser rejeitada.
 - **Verificação**: Garante que o saldo não foi alterado após a transação rejeitada.
 
-### **`testUnknownMCC`**:
+**`testUnknownMCC`**:
 
 - **Configuração**: Define saldos iniciais padrão.
 - **Ação**: Processa uma transação com um MCC desconhecido.
