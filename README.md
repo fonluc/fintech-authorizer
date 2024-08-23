@@ -191,3 +191,106 @@ Atualizou a estrutura para acomodar as novas funcionalidades e organizar melhor 
 - **Branch Final**: O branch `feature/l2-fallback-implementation` foi mantido para fins de documentação e histórico.
 
 ---
+
+# **L3. Dependente do Comerciante**
+
+## Resumo da Implementação
+
+**Objetivo:** Implementar L3 (prioridade do comerciante) enquanto mantém a funcionalidade existente de L1 e L2.
+
+### **Alterações Realizadas:**
+
+### **Adição de `merchantToCategory` em `Common.kt`:**
+
+- Mapeia comerciantes específicos para categorias de benefícios, permitindo que o nome do comerciante tenha prioridade sobre a MCC.
+
+### **Modificação de `processTransaction` em `TransactionProcessor.kt`:**
+
+- Atualizado para verificar a categoria baseada no nome do comerciante antes de usar a MCC.
+- Se a categoria baseada no comerciante não estiver disponível, o método utiliza a MCC para determinar a categoria.
+
+### **Atualização de `processTransactionWithFallback` em `TransactionFallbackProcessor.kt`:**
+
+- Inclui lógica similar para a prioridade do comerciante ao processar transações com fallback para o saldo de CASH.
+
+### **Ajustes nos Testes em `TransactionProcessorTest.kt` e `TransactionFallbackProcessorTest.kt`:**
+
+- Verificam a nova lógica de prioridade do comerciante, garantindo que as transações sejam processadas corretamente com base no comerciante ou MCC.
+
+## Explicação Testes e Resultados
+
+### Saída do build
+
+Mostra que os testes foram executados com sucesso e que o sistema está funcionando conforme o esperado. Aqui está um resumo dos resultados:
+
+![Captura de tela 2024-08-22 215814.png](assets%2FCaptura%20de%20tela%202024-08-22%20215814.png)
+
+### **1. Testes em `TransactionProcessorTest.kt`:**
+
+### **`testApproveTransactionWithMerchant`:**
+
+- Verifica se uma transação é aprovada corretamente quando o nome do comerciante (`UBER EATS`) é fornecido e corresponde a uma categoria ("Food").
+- Resultado: A transação foi aprovada e o saldo da categoria "Food" foi reduzido conforme esperado.
+
+### **`testRejectTransaction`:**
+
+- Verifica se uma transação é rejeitada quando o saldo da categoria é insuficiente.
+- Resultado: A transação foi rejeitada e o saldo da categoria não foi alterado.
+
+### **`testUnknownMCC`:**
+
+- Verifica se uma transação com um MCC desconhecido é rejeitada e o saldo de categoria permanece inalterado.
+- Resultado: A transação foi rejeitada e o saldo das categorias permaneceu o mesmo.
+
+### **2. Testes em `TransactionFallbackProcessorTest.kt`:**
+
+### **`testApproveTransactionWithMerchant`:**
+
+- Verifica se uma transação é aprovada e deduzida corretamente quando o nome do comerciante (`PAG*JoseDaSilva`) é fornecido e corresponde a uma categoria ("Grocery").
+- Resultado: A transação foi aprovada e o saldo da categoria "Grocery" foi reduzido conforme esperado.
+
+### **`testApproveTransactionWithCategory`:**
+
+- Verifica se uma transação é aprovada e deduzida corretamente de uma categoria quando a MCC é conhecida e o saldo é suficiente.
+- Resultado: A transação foi aprovada e o saldo da categoria foi ajustado conforme esperado.
+
+### **`testApproveTransactionWithCashFallback`:**
+
+- Verifica se uma transação é aprovada e deduzida do saldo de CASH quando o saldo da categoria é insuficiente.
+- Resultado: A transação foi aprovada e o saldo de CASH foi reduzido conforme esperado.
+
+### **`testRejectTransaction`:**
+
+- Verifica se uma transação é rejeitada quando tanto o saldo da categoria quanto o saldo de CASH são insuficientes.
+- Resultado: A transação foi rejeitada e os saldos permaneceram inalterados.
+
+### **`testUnknownMCC`:**
+
+- Verifica se uma transação com um MCC desconhecido é aprovada e deduzida do saldo de CASH quando o saldo é suficiente.
+- Resultado: A transação foi aprovada e o saldo de CASH foi reduzido conforme esperado.
+
+## **Criação da Feature L3**
+
+### **1. Criação da Branch**:
+
+Eu criei uma branch chamada `feature/implement-l3` para desenvolver a feature L3, que adiciona a lógica de prioridade de comerciantes ao autorizador existente.
+
+### **Refatoração e Criação de Arquivos**:
+
+- **`Common.kt`**: Adicionei um mecanismo para mapear comerciantes a categorias específicas, permitindo que nomes de comerciantes substituam MCCs durante o processamento de transações.
+- **`TransactionFallbackProcessor.kt`**: Implementei a lógica que dá prioridade aos nomes dos comerciantes sobre os MCCs ao categorizar transações. Se um comerciante específico estiver mapeado para uma categoria, essa categoria será usada em vez do MCC.
+- **`TransactionFallbackProcessorTest.kt`**: Criei testes específicos para validar a nova lógica de prioridade dos comerciantes, cobrindo diversos cenários de transações.
+
+### **2. Documentação**
+
+- **Atualização da Documentação**: Documentei as alterações, descrevendo a nova lógica de substituição de MCCs por nomes de comerciantes e os testes realizados para validar essa funcionalidade.
+
+### **3. Criação do Pull Request**
+
+- **Descrição Detalhada**: No pull request, forneci uma descrição detalhada das mudanças, incluindo as novas implementações e testes.
+- **Revisão e Aprovação**: Como estou trabalhando sozinho, realizei a revisão das mudanças antes de aprovar o pull request.
+
+### **4. Merge e Fechamento do Pull Request**
+
+- **Merge do Pull Request**: O pull request foi fundido com sucesso, integrando a feature L3 ao branch principal.
+- **Branch Final**: Decidi manter o branch `feature/implement-l3` para fins de documentação e histórico.
