@@ -212,20 +212,20 @@ Atualizou a estrutura para acomodar as novas funcionalidades e organizar melhor 
 
 ### **Alterações Realizadas:**
 
-### **Adição de `merchantToCategory` em `Common.kt`:**
+**Adição de `merchantToCategory` em `Common.kt`:**
 
 - Mapeia comerciantes específicos para categorias de benefícios, permitindo que o nome do comerciante tenha prioridade sobre a MCC.
 
-### **Modificação de `processTransaction` em `TransactionProcessor.kt`:**
+**Modificação de `processTransaction` em `TransactionProcessor.kt`:**
 
 - Atualizado para verificar a categoria baseada no nome do comerciante antes de usar a MCC.
 - Se a categoria baseada no comerciante não estiver disponível, o método utiliza a MCC para determinar a categoria.
 
-### **Atualização de `processTransactionWithFallback` em `TransactionFallbackProcessor.kt`:**
+**Atualização de `processTransactionWithFallback` em `TransactionFallbackProcessor.kt`:**
 
 - Inclui lógica similar para a prioridade do comerciante ao processar transações com fallback para o saldo de CASH.
 
-### **Ajustes nos Testes em `TransactionProcessorTest.kt` e `TransactionFallbackProcessorTest.kt`:**
+**Ajustes nos Testes em `TransactionProcessorTest.kt` e `TransactionFallbackProcessorTest.kt`:**
 
 - Verificam a nova lógica de prioridade do comerciante, garantindo que as transações sejam processadas corretamente com base no comerciante ou MCC.
 
